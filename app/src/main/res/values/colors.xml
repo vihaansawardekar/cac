@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- main color scheme -->
+    <color name="forest">#415B57</color>
+    <color name="sage">#A2C1BB</color>
+    <color name="peach">#FFC3A1</color>
+    <color name="mint">#EDFBF9</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- extra helper colors -->
+    <color name="forest_dark">#2F4541</color>
+    <color name="ink">#25332F</color>
+    <color name="muted">#6B807B</color>
+    <color name="line">#D4E6E1</color>
+    <color name="sage_soft">#E2EFEC</color>
+    <color name="sage_clear">#40A2C1BB</color>
+    <color name="peach_dark">#E9946B</color>
+    <color name="rust">#C9604D</color>
+    <color name="tan">#DCCBA6</color>
+    <color name="black">#FF000000</color>
+</resources>

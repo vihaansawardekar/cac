@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <!-- big mail icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/hero_back"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="26dp">
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="@drawable/icon_circle"
+                    android:contentDescription="Email"
+                    android:padding="18dp"
+                    android:src="@drawable/ic_mail"
+                    app:tint="@color/peach" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Check Your Email"
+                    android:textColor="@color/white"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/infoText"
+                    style="@style/BodyText"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="We sent you a link." />
+            </LinearLayout>
+
+            <Button
+                style="@style/GlowButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="checkAgain"
+                android:text="I Clicked the Link"
+                app:icon="@drawable/ic_check" />
+
+            <Button
+                style="@style/GhostButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:onClick="sendAgain"
+                android:text="Send the Email Again"
+                app:icon="@drawable/ic_refresh" />
+
+            <TextView
+                style="@style/LinkText"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:onClick="useOtherAccount"
+                android:text="Use a different account" />
+
+            <TextView
+                android:id="@+id/statusText"
+                style="@style/BodyText"
+                android:layout_marginTop="8dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

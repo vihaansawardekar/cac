@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- top bar here -->
+    <LinearLayout style="@style/TitleBar">
+
+        <ImageButton style="@style/BackButton" />
+
+        <TextView
+            android:id="@+id/titleBar"
+            style="@style/TitleText"
+            android:text="Phone Number" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="18dp">
+
+            <!-- big phone icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/hero_back"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <ImageView
+                    android:id="@+id/heroIcon"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/icon_circle"
+                    android:contentDescription="Phone"
+                    android:padding="16dp"
+                    android:src="@drawable/ic_phone"
+                    app:tint="@color/peach" />
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/infoText"
+                    style="@style/BodyText"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="We will text you a 6-digit code." />
+            </LinearLayout>
+
+            <!-- phone and code -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/Label"
+                    android:layout_marginTop="0dp"
+                    android:text="Phone number (start with + and country code)" />
+
+                <EditText
+                    android:id="@+id/phoneBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="+1 555 123 4567"
+                    android:inputType="phone" />
+
+                <Button
+                    android:id="@+id/sendButton"
+                    style="@style/GhostButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:onClick="sendCode"
+                    android:text="Text Me a Code"
+                    app:icon="@drawable/ic_mail" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="6-digit code" />
+
+                <EditText
+                    android:id="@+id/codeBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="123456"
+                    android:inputType="number"
+                    android:letterSpacing="0.3"
+                    android:maxLength="6" />
+
+                <Button
+                    style="@style/GlowButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:onClick="checkCode"
+                    android:text="Verify Code"
+                    app:icon="@drawable/ic_shield_check" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/statusText"
+                style="@style/BodyText"
+                android:gravity="center" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

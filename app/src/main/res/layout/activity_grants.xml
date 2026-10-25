@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- top bar here -->
+    <LinearLayout style="@style/TitleBar">
+
+        <ImageButton style="@style/BackButton" />
+
+        <TextView
+            android:id="@+id/titleBar"
+            style="@style/TitleText"
+            android:text="Grants &amp; Carbon Credits" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="18dp">
+
+            <!-- big money total -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/hero_back"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/icon_circle"
+                    android:contentDescription="Money"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_dollar"
+                    app:tint="@color/peach" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="You could get about"
+                    android:textColor="@color/sage"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/totalText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="$0"
+                    android:textColor="@color/peach"
+                    android:textSize="42sp" />
+
+                <TextView
+                    android:id="@+id/countText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="per year"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <!-- farm info card -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    android:id="@+id/grantTitle"
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_tool"
+                    android:text="Your Farm" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Label"
+                            android:layout_marginTop="0dp"
+                            android:text="Organic matter %" />
+
+                        <EditText
+                            android:id="@+id/omBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Label"
+                            android:layout_marginTop="0dp"
+                            android:text="Acres" />
+
+                        <EditText
+                            android:id="@+id/acresBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Label"
+                    android:text="State" />
+
+                <Spinner
+                    android:id="@+id/stateSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/states" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Tillage you use now" />
+
+                <Spinner
+                    android:id="@+id/tillageSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/tillage_types" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="What fits you?" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/coverCheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="I plant cover crops" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/nutrientCheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="I have a nutrient plan" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/willingCheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Willing to try a new practice" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/beginnerCheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Beginning farmer (under 10 yrs)" />
+                </com.google.android.material.chip.ChipGroup>
+            </LinearLayout>
+
+            <Button
+                style="@style/GlowButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:onClick="checkPrograms"
+                android:text="Check What I Qualify For"
+                app:icon="@drawable/ic_check" />
+
+            <TextView
+                style="@style/CardTitle"
+                android:drawableStart="@drawable/ic_award"
+                android:text="Programs" />
+
+            <!-- program cards go -->
+            <LinearLayout
+                android:id="@+id/programList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                style="@style/BodyText"
+                android:layout_marginTop="6dp"
+                android:drawableStart="@drawable/ic_info"
+                android:drawablePadding="10dp"
+                android:text="All money amounts are rough yearly estimates. Some programs can't pay twice for the same practice. Rules and rates change, so check with your local USDA office or the company before signing up."
+                android:textColor="@color/muted"
+                android:textSize="13sp"
+                app:drawableTint="@color/muted" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

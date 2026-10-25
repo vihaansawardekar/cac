@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- top bar here -->
+    <LinearLayout style="@style/TitleBar">
+
+        <ImageButton style="@style/BackButton" />
+
+        <TextView
+            style="@style/TitleText"
+            android:text="Animal Walk Check" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="18dp">
+
+            <!-- video card here -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_video"
+                    android:text="Video of the Walk" />
+
+                <TextView
+                    style="@style/BodyText"
+                    android:text="Film the cow from the side while she walks 8 to 10 steps on flat ground. Keep her whole body in the picture."
+                    android:textColor="@color/muted"
+                    android:textSize="14sp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/photo_frame">
+
+                    <LinearLayout
+                        android:id="@+id/videoHint"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:contentDescription="Video"
+                            android:src="@drawable/ic_video"
+                            app:tint="@color/forest" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="The video plays here with green dots on the joints"
+                            android:textColor="@color/muted" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/frameView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/input_normal"
+                        android:clipToOutline="true"
+                        android:contentDescription="Cow with body points"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:max="100"
+                    android:progressTint="@color/forest"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/progressText"
+                    style="@style/BodyText"
+                    android:layout_marginTop="6dp"
+                    android:textColor="@color/muted"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/recordButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:onClick="recordVideo"
+                        android:text="Record"
+                        app:icon="@drawable/ic_video" />
+
+                    <Button
+                        android:id="@+id/pickButton"
+                        style="@style/GhostButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:onClick="pickVideo"
+                        android:text="Pick Video"
+                        app:icon="@drawable/ic_image" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- lameness result card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/hero_back"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_activity"
+                    android:text="Lameness Score"
+                    android:textColor="@color/white"
+                    app:drawableTint="@color/peach" />
+
+                <com.example.soilmetrics.GaugeView
+                    android:id="@+id/scoreGauge"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp" />
+
+                <TextView
+                    android:id="@+id/adviceText"
+                    style="@style/BodyText"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="Record or pick a video to check how the cow walks."
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/balanceChip"
+                        style="@style/MiniStat"
+                        android:text="--\nstep balance" />
+
+                    <Space
+                        android:layout_width="8dp"
+                        android:layout_height="1dp" />
+
+                    <TextView
+                        android:id="@+id/bobChip"
+                        style="@style/MiniStat"
+                        android:text="--\nhead bob" />
+
+                    <Space
+                        android:layout_width="8dp"
+                        android:layout_height="1dp" />
+
+                    <TextView
+                        android:id="@+id/rhythmChip"
+                        style="@style/MiniStat"
+                        android:text="--\nstep rhythm" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- hoof motion card -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_chart"
+                    android:text="Back Hoof Motion" />
+
+                <com.example.soilmetrics.MotionView
+                    android:id="@+id/motionView"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp" />
+
+                <TextView
+                    android:id="@+id/motionText"
+                    style="@style/BodyText"
+                    android:layout_marginTop="8dp"
+                    android:text="A sound cow makes two even waves that repeat with every stride."
+                    android:textColor="@color/muted"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- save it card -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_tag"
+                    android:text="Save to Herd Log" />
+
+                <EditText
+                    android:id="@+id/animalBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cow name or ear tag"
+                    android:inputType="textCapWords" />
+
+                <Button
+                    android:id="@+id/saveButton"
+                    style="@style/GlowButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:enabled="false"
+                    android:onClick="saveCheck"
+                    android:text="Save Check"
+                    app:icon="@drawable/ic_check" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Recent checks" />
+
+                <TextView
+                    android:id="@+id/historyText"
+                    style="@style/BodyText"
+                    android:text="No cows checked yet."
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

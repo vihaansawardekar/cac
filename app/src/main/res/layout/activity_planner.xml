@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- top bar here -->
+    <LinearLayout style="@style/TitleBar">
+
+        <ImageButton style="@style/BackButton" />
+
+        <TextView
+            android:id="@+id/titleBar"
+            style="@style/TitleText"
+            android:text="Best Crop Plan" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="18dp">
+
+            <!-- step one soil -->
+            <LinearLayout style="@style/Card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/StepNumber"
+                        android:text="1" />
+
+                    <TextView
+                        android:id="@+id/plannerTitle"
+                        style="@style/CardTitle"
+                        android:layout_marginBottom="0dp"
+                        android:text="Your Soil Now" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Organic matter % (from your latest test)" />
+
+                <EditText
+                    android:id="@+id/omBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Crop on this field this year" />
+
+                <Spinner
+                    android:id="@+id/currentCropSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/crop_names" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Climate zone" />
+
+                <Spinner
+                    android:id="@+id/climateSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/climate_zones" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Pest and disease pressure near you" />
+
+                <Spinner
+                    android:id="@+id/pestSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/pest_levels" />
+            </LinearLayout>
+
+            <!-- step two prices -->
+            <LinearLayout style="@style/Card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/StepNumber"
+                        android:text="2" />
+
+                    <TextView
+                        style="@style/CardTitle"
+                        android:layout_marginBottom="0dp"
+                        android:text="Crop Prices Now" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Label"
+                            android:text="Corn ($/bu)" />
+
+                        <EditText
+                            android:id="@+id/cornPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:text="4.20" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Label"
+                            android:text="Soybeans ($/bu)" />
+
+                        <EditText
+                            android:id="@+id/soyPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:text="10.50" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Label"
+                            android:text="Wheat ($/bu)" />
+
+                        <EditText
+                            android:id="@+id/wheatPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:text="5.60" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Label"
+                            android:text="Oats ($/bu)" />
+
+                        <EditText
+                            android:id="@+id/oatsPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:text="3.50" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Alfalfa hay ($/ton)" />
+
+                <EditText
+                    android:id="@+id/hayPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:text="180" />
+            </LinearLayout>
+
+            <!-- step three farming -->
+            <LinearLayout style="@style/Card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/StepNumber"
+                        android:text="3" />
+
+                    <TextView
+                        style="@style/CardTitle"
+                        android:layout_marginBottom="0dp"
+                        android:text="How You Farm" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Tillage you plan to use" />
+
+                <Spinner
+                    android:id="@+id/tillageSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/tillage_types" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Nitrogen fertilizer (lb per acre)" />
+
+                <EditText
+                    android:id="@+id/nitrogenBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:text="150" />
+
+                <CheckBox
+                    android:id="@+id/manureCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Add manure or compost"
+                    android:textColor="@color/ink" />
+            </LinearLayout>
+
+            <!-- step four optimizer -->
+            <LinearLayout style="@style/Card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/StepNumber"
+                        android:text="4" />
+
+                    <TextView
+                        style="@style/CardTitle"
+                        android:layout_marginBottom="0dp"
+                        android:text="Find Your Best Plan" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Crops you would grow" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/useCorn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Corn" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/useSoy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Soybeans" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/useWheat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Wheat" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/useOats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Oats" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/useAlfalfa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alfalfa" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/useCover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Cover crop year" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Equipment you have" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/hasPlanter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Row planter" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/hasDrill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Grain drill" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/hasCombine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Combine" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/hasHay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hay tools" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Buyers near you" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/oatsBuyer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Someone buys oats" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/hayBuyer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Someone buys hay" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Rotation length" />
+
+                <Spinner
+                    android:id="@+id/rotationSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/rotation_lengths" />
+
+                <TextView
+                    android:id="@+id/weightLabel"
+                    style="@style/Label"
+                    android:text="What matters more? Money 50 / Soil 50" />
+
+                <SeekBar
+                    android:id="@+id/soilSeek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="50"
+                    android:progressTint="@color/forest"
+                    android:thumbTint="@color/forest" />
+
+                <Button
+                    style="@style/GlowButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:onClick="findRotations"
+                    android:text="Find My Best Plan"
+                    app:icon="@drawable/ic_repeat" />
+
+                <!-- rotation cards go -->
+                <LinearLayout
+                    android:id="@+id/rotationList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <!-- best plan details -->
+                <TextView
+                    android:id="@+id/bestTitle"
+                    style="@style/Label"
+                    android:layout_marginTop="18dp"
+                    android:text="Plan #1, year by year"
+                    android:visibility="gone" />
+
+                <com.example.soilmetrics.GraphView
+                    android:id="@+id/bestGraph"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/bestYears"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/rotationText"
+                    style="@style/BodyText"
+                    android:layout_marginTop="12dp"
+                    android:text="Rules: no same crop two years in a row (alfalfa can go 3), no wheat right after corn, and your equipment and buyers must fit."
+                    android:textColor="@color/muted"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

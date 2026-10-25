@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <!-- logo and welcome -->
+            <ImageView
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/icon_circle"
+                android:contentDescription="Logo"
+                android:padding="18dp"
+                android:src="@drawable/ic_leaf"
+                app:tint="@color/forest" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
+                android:fontFamily="sans-serif-black"
+                android:text="SoilMetrics"
+                android:textColor="@color/ink"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="22dp"
+                android:text="Sign in to check your soil"
+                android:textColor="@color/muted"
+                android:textSize="15sp" />
+
+            <!-- email sign in -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_mail"
+                    android:text="Sign in with Email" />
+
+                <TextView
+                    style="@style/Label"
+                    android:layout_marginTop="0dp"
+                    android:text="Email" />
+
+                <EditText
+                    android:id="@+id/emailBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="you@farm.com"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Password" />
+
+                <EditText
+                    android:id="@+id/passwordBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="At least 6 characters"
+                    android:inputType="textPassword" />
+
+                <Button
+                    style="@style/GlowButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:onClick="signIn"
+                    android:text="Sign In"
+                    app:icon="@drawable/ic_lock" />
+
+                <Button
+                    style="@style/GhostButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:onClick="createAccount"
+                    android:text="Create Account"
+                    app:icon="@drawable/ic_user" />
+
+                <TextView
+                    style="@style/LinkText"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="4dp"
+                    android:onClick="forgotPassword"
+                    android:text="Forgot password?" />
+            </LinearLayout>
+
+            <!-- or line here -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/line" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:text="or"
+                    android:textColor="@color/muted" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/line" />
+            </LinearLayout>
+
+            <!-- other sign ins -->
+            <Button
+                style="@style/GoogleButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="googleSignIn"
+                android:text="Continue with Google"
+                app:icon="@drawable/ic_google" />
+
+            <Button
+                style="@style/GhostButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:onClick="phoneSignIn"
+                android:text="Continue with Phone Number"
+                app:icon="@drawable/ic_phone" />
+
+            <TextView
+                style="@style/LinkText"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp"
+                android:onClick="guestSignIn"
+                android:text="Continue as Guest" />
+
+            <TextView
+                android:id="@+id/statusText"
+                style="@style/BodyText"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:textColor="@color/ink" />
+
+            <TextView
+                style="@style/BodyText"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/ic_shield"
+                android:drawablePadding="10dp"
+                android:text="New email accounts must confirm their email. You can turn on 2-step verification in your Account page."
+                android:textColor="@color/muted"
+                android:textSize="13sp"
+                app:drawableTint="@color/muted" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

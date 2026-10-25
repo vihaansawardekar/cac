@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <!-- hello and logo -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/icon_circle"
+                    android:contentDescription="Logo"
+                    android:padding="13dp"
+                    android:src="@drawable/ic_leaf"
+                    app:tint="@color/forest" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/greetingText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hello, farmer"
+                        android:textColor="@color/muted"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:text="SoilMetrics"
+                        android:textColor="@color/ink"
+                        android:textSize="28sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    style="@style/IconButton"
+                    android:contentDescription="Add field"
+                    android:onClick="addField"
+                    android:src="@drawable/ic_plus" />
+
+                <ImageButton
+                    style="@style/IconButton"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="Account"
+                    android:onClick="openAccount"
+                    android:src="@drawable/ic_user" />
+            </LinearLayout>
+
+            <!-- pick the field -->
+            <LinearLayout style="@style/Card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="Field"
+                        android:src="@drawable/ic_pin"
+                        app:tint="@color/forest" />
+
+                    <Spinner
+                        android:id="@+id/fieldSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        style="@style/IconButton"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="Edit field"
+                        android:onClick="editField"
+                        android:src="@drawable/ic_edit" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/fieldInfo"
+                    style="@style/BodyText"
+                    android:layout_marginTop="10dp"
+                    android:text="Tap + to add your first field."
+                    android:textColor="@color/muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- organic matter gauge -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/hero_back"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:textColor="@color/white"
+                    app:drawableTint="@color/peach"
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_layers"
+                    android:text="Soil Organic Matter" />
+
+                <com.example.soilmetrics.GaugeView
+                    android:id="@+id/omGauge"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp" />
+
+                <TextView
+                    android:id="@+id/omLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="No soil tests yet. Take a soil photo!"
+                    android:textColor="@color/sage"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/photoButton"
+                    style="@style/GlowButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:onClick="takePhoto"
+                    android:text="Scan Soil Now"
+                    app:icon="@drawable/ic_camera" />
+            </LinearLayout>
+
+            <!-- cow walk check -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_video"
+                    android:text="Animal Walk Check" />
+
+                <TextView
+                    style="@style/BodyText"
+                    android:text="Film a cow walking from the side. The AI finds 17 body points and looks for early signs of lameness."
+                    android:textColor="@color/muted"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:onClick="openGait"
+                    android:text="Check a Cow's Walk"
+                    app:icon="@drawable/ic_video" />
+            </LinearLayout>
+
+            <!-- three menu tiles -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Tile"
+                    android:drawableTop="@drawable/ic_history"
+                    android:onClick="openHistory"
+                    android:text="History" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="1dp" />
+
+                <TextView
+                    style="@style/Tile"
+                    android:drawableTop="@drawable/ic_dollar"
+                    android:onClick="openGrants"
+                    android:text="Grants &amp; Carbon" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="1dp" />
+
+                <TextView
+                    style="@style/Tile"
+                    android:drawableTop="@drawable/ic_repeat"
+                    android:onClick="openPlanner"
+                    android:text="Best Crop Plan" />
+            </LinearLayout>
+
+            <!-- organic matter trend -->
+            <LinearLayout style="@style/Card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/CardTitle"
+                        android:layout_width="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/ic_chart"
+                        android:text="Trend" />
+
+                    <TextView
+                        android:id="@+id/trendBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/badge_back"
+                        android:fontFamily="sans-serif-medium"
+                        android:paddingStart="12dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="5dp"
+                        android:text="No data"
+                        android:textColor="@color/forest"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <com.example.soilmetrics.GraphView
+                    android:id="@+id/omGraph"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp" />
+
+                <TextView
+                    android:id="@+id/trendText"
+                    style="@style/BodyText"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- weather card here -->
+            <LinearLayout style="@style/Card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/CardTitle"
+                        android:layout_width="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/ic_cloud"
+                        android:text="Weather" />
+
+                    <ImageButton
+                        style="@style/IconButton"
+                        android:contentDescription="Refresh weather"
+                        android:onClick="refreshWeather"
+                        android:src="@drawable/ic_refresh" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/weatherIcon"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:background="@drawable/icon_circle"
+                        android:contentDescription="Weather icon"
+                        android:padding="14dp"
+                        android:src="@drawable/ic_sun"
+                        app:tint="@color/forest" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tempText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:text="--°F"
+                            android:textColor="@color/ink"
+                            android:textSize="38sp" />
+
+                        <TextView
+                            android:id="@+id/conditionText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Loading weather..."
+                            android:textColor="@color/forest"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/windChip"
+                        style="@style/StatChip"
+                        android:drawableTop="@drawable/ic_wind"
+                        android:text="--" />
+
+                    <Space
+                        android:layout_width="8dp"
+                        android:layout_height="1dp" />
+
+                    <TextView
+                        android:id="@+id/rainChip"
+                        style="@style/StatChip"
+                        android:drawableTop="@drawable/ic_droplet"
+                        android:text="--" />
+
+                    <Space
+                        android:layout_width="8dp"
+                        android:layout_height="1dp" />
+
+                    <TextView
+                        android:id="@+id/soilChip"
+                        style="@style/StatChip"
+                        android:drawableTop="@drawable/ic_layers"
+                        android:text="--" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/weatherText"
+                    style="@style/BodyText"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/muted"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- satellite ndvi card -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_globe"
+                    android:text="Satellite Plant Health" />
+
+                <!-- the satellite picture -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:background="@drawable/input_normal">
+
+                    <TextView
+                        android:id="@+id/satLoading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Loading satellite picture..."
+                        android:textColor="@color/muted" />
+
+                    <ImageView
+                        android:id="@+id/satImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/input_normal"
+                        android:clipToOutline="true"
+                        android:contentDescription="Satellite picture of your field"
+                        android:scaleType="centerCrop" />
+
+                    <View
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/target_ring" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/satCaption"
+                    style="@style/BodyText"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="14dp"
+                    android:text="Satellite photo of your field. The circle is the center of your field."
+                    android:textColor="@color/muted"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/ndviBig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:text="--"
+                        android:textColor="@color/forest"
+                        android:textSize="36sp" />
+
+                    <TextView
+                        android:id="@+id/ndviWords"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="Loading satellite data..."
+                        android:textColor="@color/ink"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <com.example.soilmetrics.NdviBarView
+                    android:id="@+id/ndviBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/ndviText"
+                    style="@style/BodyText"
+                    android:textColor="@color/muted"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- compaction zones card -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_grid"
+                    android:text="Compaction Risk Map" />
+
+                <TextView
+                    style="@style/BodyText"
+                    android:layout_marginBottom="10dp"
+                    android:text="Each box is part of your field. The edges are turn rows where tractors drive the most."
+                    android:textColor="@color/muted"
+                    android:textSize="13sp" />
+
+                <com.example.soilmetrics.ZoneView
+                    android:id="@+id/zoneView"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/dot"
+                        android:drawablePadding="6dp"
+                        android:text="Low"
+                        android:textColor="@color/ink"
+                        app:drawableTint="@color/forest" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:drawableStart="@drawable/dot"
+                        android:drawablePadding="6dp"
+                        android:text="Medium"
+                        android:textColor="@color/ink"
+                        app:drawableTint="@color/peach_dark" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:drawableStart="@drawable/dot"
+                        android:drawablePadding="6dp"
+                        android:text="High"
+                        android:textColor="@color/ink"
+                        app:drawableTint="@color/rust" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/zoneText"
+                    style="@style/BodyText"
+                    android:layout_marginTop="12dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="Weather by Open-Meteo  •  Photo by Esri  •  Plant health by NASA MODIS"
+                android:textColor="@color/muted"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

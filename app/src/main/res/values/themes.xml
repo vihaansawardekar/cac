@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SoilMetrics" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/forest</item>
+        <item name="colorPrimaryVariant">@color/forest_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/peach</item>
+        <item name="colorOnSecondary">@color/forest</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorControlNormal">@color/muted</item>
+        <item name="colorControlActivated">@color/forest</item>
+        <item name="android:colorBackground">@color/mint</item>
+        <item name="android:windowBackground">@color/mint</item>
+        <item name="android:statusBarColor">@color/mint</item>
+        <item name="android:navigationBarColor">@color/mint</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/muted</item>
+        <item name="android:textColorHint">#94A8A3</item>
+        <item name="materialButtonStyle">@style/FarmButton</item>
+        <item name="editTextStyle">@style/FarmInput</item>
+        <item name="spinnerStyle">@style/FarmSpinner</item>
+        <item name="chipStyle">@style/FarmChip</item>
+        <item name="alertDialogTheme">@style/FarmDialog</item>
+    </style>
+
+    <!-- rounded popup dialogs -->
+    <style name="FarmDialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/dialog_back</item>
+        <item name="colorPrimary">@color/forest</item>
+        <item name="colorAccent">@color/forest</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/muted</item>
+    </style>
+
+    <!-- filled main button -->
+    <style name="FarmButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">16dp</item>
+        <item name="backgroundTint">@color/forest</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="iconTint">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">54dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">10dp</item>
+    </style>
+
+    <!-- bright aqua button -->
+    <style name="GlowButton" parent="FarmButton">
+        <item name="backgroundTint">@color/peach</item>
+        <item name="android:textColor">@color/forest_dark</item>
+        <item name="iconTint">@color/forest_dark</item>
+    </style>
+
+    <!-- outlined second button -->
+    <style name="GhostButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">@color/forest</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textColor">@color/forest</item>
+        <item name="iconTint">@color/forest</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">8dp</item>
+    </style>
+
+    <!-- white google button -->
+    <style name="GoogleButton" parent="FarmButton">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">#1F1F1F</item>
+        <item name="iconTint">@color/white</item>
+        <item name="iconTintMode">multiply</item>
+        <item name="strokeColor">@color/line</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- small link text -->
+    <style name="LinkText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/forest</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- red delete button -->
+    <style name="DangerButton" parent="GhostButton">
+        <item name="strokeColor">@color/rust</item>
+        <item name="android:textColor">@color/rust</item>
+        <item name="iconTint">@color/rust</item>
+    </style>
+
+    <!-- text box look -->
+    <style name="FarmInput" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/input_back</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- dropdown box look -->
+    <style name="FarmSpinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/spinner_back</item>
+        <item name="android:popupBackground">@drawable/popup_back</item>
+        <item name="android:paddingEnd">40dp</item>
+    </style>
+
+    <!-- pick crop chips -->
+    <style name="FarmChip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_fill</item>
+        <item name="chipStrokeColor">@color/chip_line</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="checkedIconTint">@color/forest_dark</item>
+        <item name="chipMinHeight">40dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- screen top bar -->
+    <style name="TitleBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:background">@color/mint</item>
+    </style>
+
+    <style name="TitleText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/forest_dark</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="BackButton">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:src">@drawable/ic_back</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:contentDescription">Go back</item>
+        <item name="tint">@color/forest</item>
+        <item name="android:onClick">goBack</item>
+    </style>
+
+    <style name="Card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+        <item name="android:background">@drawable/card_back</item>
+    </style>
+
+    <style name="CardTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="drawableTint">@color/forest</item>
+    </style>
+
+    <style name="Label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/muted</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="BodyText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="BigButton" parent="FarmButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <!-- small info chip -->
+    <style name="StatChip">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/chip_back</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/forest_dark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:drawablePadding">6dp</item>
+        <item name="drawableTint">@color/forest</item>
+    </style>
+
+    <!-- tiny forecast number -->
+    <style name="MiniStat">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/card_back</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- dashboard menu tile -->
+    <style name="Tile">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/tile_back</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="drawableTint">@color/forest</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- numbered step circle -->
+    <style name="StepNumber">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:background">@drawable/step_back</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/forest_dark</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:layout_marginEnd">10dp</item>
+    </style>
+
+    <!-- small icon button -->
+    <style name="IconButton">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/chip_back</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="tint">@color/forest</item>
+    </style>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "628461128345",
+    "project_id": "soilmetrics-d24b4",
+    "storage_bucket": "soilmetrics-d24b4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628461128345:android:aa0fd191713275f93f8608",
+        "android_client_info": {
+          "package_name": "com.example.soilmetrics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628461128345-pdcq04hef9vi1fft4g6ih21m5l7nrkqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2KSBmRzLDT9Xx_D6IuHgrY1On8rMosxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628461128345-pdcq04hef9vi1fft4g6ih21m5l7nrkqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

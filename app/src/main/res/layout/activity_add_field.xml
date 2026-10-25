@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- top bar here -->
+    <LinearLayout style="@style/TitleBar">
+
+        <ImageButton style="@style/BackButton" />
+
+        <TextView
+            android:id="@+id/titleBar"
+            style="@style/TitleText"
+            android:text="Field Info" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="18dp">
+
+            <!-- name and size -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_edit"
+                    android:text="Field Details" />
+
+                <TextView
+                    style="@style/Label"
+                    android:layout_marginTop="0dp"
+                    android:text="Field name" />
+
+                <EditText
+                    android:id="@+id/nameBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="North Field"
+                    android:inputType="textCapWords" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Size (acres)" />
+
+                <EditText
+                    android:id="@+id/acresBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="160"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <!-- where the field -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_pin"
+                    android:text="Location" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Label"
+                            android:layout_marginTop="0dp"
+                            android:text="Latitude" />
+
+                        <EditText
+                            android:id="@+id/latBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="41.60"
+                            android:inputType="numberDecimal|numberSigned" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Label"
+                            android:layout_marginTop="0dp"
+                            android:text="Longitude" />
+
+                        <EditText
+                            android:id="@+id/lonBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="-93.60"
+                            android:inputType="numberDecimal|numberSigned" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    style="@style/GhostButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:onClick="useMyLocation"
+                    android:text="Use My Location"
+                    app:icon="@drawable/ic_pin" />
+            </LinearLayout>
+
+            <!-- how they farm -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_tool"
+                    android:text="How You Farm Now" />
+
+                <TextView
+                    style="@style/Label"
+                    android:layout_marginTop="0dp"
+                    android:text="State" />
+
+                <Spinner
+                    android:id="@+id/stateSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/states" />
+
+                <TextView
+                    style="@style/Label"
+                    android:text="Tillage you use now" />
+
+                <Spinner
+                    android:id="@+id/tillageSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:entries="@array/tillage_types" />
+
+                <CheckBox
+                    android:id="@+id/coverCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="I plant cover crops now"
+                    android:textColor="@color/ink" />
+            </LinearLayout>
+
+            <Button
+                style="@style/BigButton"
+                android:onClick="saveField"
+                android:text="Save Field"
+                app:icon="@drawable/ic_check" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                style="@style/DangerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="deleteField"
+                android:text="Delete Field"
+                android:visibility="gone"
+                app:icon="@drawable/ic_trash" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

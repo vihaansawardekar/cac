@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mint"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- top bar here -->
+    <LinearLayout style="@style/TitleBar">
+
+        <ImageButton style="@style/BackButton" />
+
+        <TextView
+            android:id="@+id/titleBar"
+            style="@style/TitleText"
+            android:text="Your Account" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="18dp">
+
+            <!-- who is signed -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/hero_back"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="@drawable/icon_circle"
+                    android:contentDescription="User"
+                    android:padding="18dp"
+                    android:src="@drawable/ic_user"
+                    app:tint="@color/peach" />
+
+                <TextView
+                    android:id="@+id/nameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Farmer"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/methodText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/badge_back"
+                    android:paddingStart="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/peach"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- two step card -->
+            <LinearLayout style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_shield"
+                    android:text="2-Step Verification" />
+
+                <TextView
+                    android:id="@+id/twoStepText"
+                    style="@style/BodyText"
+                    android:text="Off" />
+
+                <TextView
+                    style="@style/BodyText"
+                    android:layout_marginTop="6dp"
+                    android:text="When it is on, signing in needs your password AND a code we text to your phone."
+                    android:textColor="@color/muted"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/twoStepButton"
+                    style="@style/GlowButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:onClick="toggleTwoStep"
+                    android:text="Turn On 2-Step"
+                    app:icon="@drawable/ic_shield_check" />
+            </LinearLayout>
+
+            <!-- password card here -->
+            <LinearLayout
+                android:id="@+id/passwordCard"
+                style="@style/Card">
+
+                <TextView
+                    style="@style/CardTitle"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:text="Password" />
+
+                <Button
+                    style="@style/GhostButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="resetPassword"
+                    android:text="Email Me a Reset Link"
+                    app:icon="@drawable/ic_mail" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/statusText"
+                style="@style/BodyText"
+                android:layout_marginBottom="10dp"
+                android:gravity="center" />
+
+            <Button
+                style="@style/DangerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="signOut"
+                android:text="Sign Out"
+                app:icon="@drawable/ic_logout" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
