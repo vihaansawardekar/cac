@@ -1,3 +1,20 @@
+## How to run
+
+1. **Get the code:** `git clone https://github.com/vihaansawardekar/cac.git`, or download the ZIP from GitHub.
+2. **Open it:** in Android Studio, choose **File → Open**, select the `cac` folder, and click **Trust Project**. Wait for Gradle sync to finish.
+3. **Make an emulator:** in **Device Manager**, choose **+ → Create Virtual Device → Pixel 9 → API 35** (x86_64 on Windows, arm64 on Apple Silicon Mac). Under additional settings, set **RAM to 4096 MB** and **Graphics to Software**.
+4. **Start it:** start the emulator and **wait for the home screen**, then press **Run**.
+5. **Sign in:** tap **Continue as Guest**. If nothing happens, wait a minute for the emulator's Wi-Fi to connect and try again.
+
+### If something goes wrong
+## If It Says "System UI Is Not Responding" Then Press Wait and Continue to Use The Application
+## Note: App Is Laggy and Slow Before Sign In But Is Smoother and More Responsive After Sign in
+- **"Device is offline":** the emulator wasn't ready. Wait for the home screen and press Run again.
+- **"Emulator closed unexpectedly":** set the emulator's **Graphics to Software** in Device Manager.
+- **No internet in the app:** in Device Manager, choose **⋮ → Cold Boot Now**.
+- **Defender or "Unsupported version" notices:** safe to ignore.
+
+
 # SoilMetrics
 
 An Android app that helps farmers check their soil and their cows.
