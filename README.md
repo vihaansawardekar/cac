@@ -6,9 +6,9 @@
 4. **Start it:** start the emulator and **wait for the home screen**, then press **Run**.
 5. **Sign in:** tap **Continue as Guest**. If nothing happens, wait a minute for the emulator's Wi-Fi to connect and try again.
 
-### If something goes wrong
-## If It Says "System UI Is Not Responding" Then Press Wait and Continue to Use The Application
-## Note: App Is Laggy and Slow Before Sign In But Is Smoother and More Responsive After Sign in
+## If something goes wrong
+### If It Says "System UI Is Not Responding" Then Press Wait and Continue to Use The Application
+### If Facing An Error During Sign In, Scroll Down On Sign In Page To See Why The Error Is Happening
 - **"Device is offline":** the emulator wasn't ready. Wait for the home screen and press Run again.
 - **"Emulator closed unexpectedly":** set the emulator's **Graphics to Software** in Device Manager.
 - **No internet in the app:** in Device Manager, choose **⋮ → Cold Boot Now**.
